@@ -1,10 +1,12 @@
-from app.database import Session as session
+from app.database import session
 from app.models.user import User
+from app.models.account import Account
+
 
 def create(data):
     session.add(data)
     session.commit()
-    session.close(data)
+    session.close()
     return data
 
 def read(model, id):
@@ -26,3 +28,6 @@ def delete(model, id):
 
 def get_user(username, password):
     return session.query(User).filter(User.username == username, User.password == password).first()
+
+def get_account_by_user_id(user_id):
+    return session.query(Account).filter(Account.user_id == user_id).all()

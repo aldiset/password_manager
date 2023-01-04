@@ -1,0 +1,61 @@
+/* Style untuk header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style untuk navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Style untuk main content */
+main {
+    margin: 20px;
+}
+
+/* Style untuk table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid #333;
+    padding: 10px;
+}
+th {
+    background-color: #333;
+    color: #fff;
+    font-size: 18px;
+}
+td {
+    font-size: 16px;
+}
+
+/* Style untuk action links */
+td a {
+    color: #333;
+    text-decoration: none;
+}
+td a:hover {
+    color: #666;
+}
+
+/* Style untuk footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}

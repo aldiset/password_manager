@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User - Password Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Welcome to Password Manager</h1>
+        <p>Tempatnya menyimpan semua password Anda dengan aman</p>
+    </header>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="/logout">Logout</a>
+    </nav>
+
+    <!-- Main content -->
+    <main>
+        <h2>Daftar Accounts</h2>
+
+        <!-- Table -->
+        <table>
+            <tr>
+                <th>No.</th>
+                <th>Website</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Action</th>
+            </tr>
+            {% for account in accounts %}
+                <tr>
+                    <td>{{ account.index }}</td>
+                    <td>{{ account.website }}</td>
+                    <td>{{ account.username }}</td>
+                    <td>{{ account.password }}</td>
+                    <td>
+                        <a href="/edit">Edit</a>
+                        <a href="/edit">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; Copyright 2021 | Password Manager
+    </footer>
+</body>
+</html>

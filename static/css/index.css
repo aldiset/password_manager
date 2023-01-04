@@ -1,0 +1,64 @@
+/* Style untuk header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style untuk navbar */
+nav {
+    display: flex;
+    /* justify-content: space-between; */
+    nav-left: auto;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Style untuk main content */
+main {
+    margin: 20px;
+}
+
+/* Style untuk artikel */
+article {
+    margin: 20px;
+}
+article h2 {
+    font-size: 24px;
+}
+article p {
+    font-size: 16px;
+    line-height: 1.5;
+    justify-self: start;
+}
+
+/* Style untuk menu */
+.menu {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+.menu a {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+.menu a:hover {
+    background-color: #666;
+}
+
+/* Style untuk footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}

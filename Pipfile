@@ -12,6 +12,3 @@ mysql-client = "*"
 mysql-connector-python = "*"
 
 [dev-packages]
-
-[requires]
-python_version = "3.10"

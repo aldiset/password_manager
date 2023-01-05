@@ -17,7 +17,7 @@ def load_user(user_id):
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    return render_template('index1.html')
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
@@ -57,18 +57,13 @@ def login():
 
 # Mendefinisikan route home
 @app.route('/home')
-@login_required
 def home():
-    breakpoint()
     # Mengambil data user dari session
-    if current_user:
-        user_id = session.get('user_id')
-        accounts = get_account_by_user_id(user_id=user_id)
+    user_id = session.get('user_id')
+    accounts = get_account_by_user_id(user_id=user_id)
 
-        # Render halaman home dengan data user
-        return render_template('user.html', accounts=accounts)
-    else:
-        return "access denied"
+    # Render halaman home dengan data user
+    return render_template('user.html', accounts=accounts)
 
 if __name__ == '__main__':
     app.run(debug=True)

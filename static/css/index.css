@@ -1,6 +1,6 @@
 /* Style untuk header */
 header {
-    background-color: #333;
+    background-image: url('https://www.datocms-assets.com/52693/1655103334-keamanan-data-1.jpg');
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -9,7 +9,7 @@ header {
 /* Style untuk navbar */
 nav {
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-evenly;
     nav-left: auto;
     align-items: center;
     background-color: #333;

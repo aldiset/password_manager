@@ -7,6 +7,7 @@ def create(data):
     session.add(data)
     session.commit()
     session.close()
+    breakpoint()
     return data
 
 def read(model, id):

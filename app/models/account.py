@@ -9,6 +9,5 @@ class Account(Base):
     name = Column(String)
     username = Column(String)
     password = Column(String)
-    website = Column(String)
     user_id = Column(Integer)
 

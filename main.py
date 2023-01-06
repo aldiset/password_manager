@@ -28,10 +28,9 @@ def register():
         email = request.form['email']
         username = request.form['username']
         password = request.form['password']
-        role = request.form['role']
         
         # membuat object
-        object = User(name=name, email=email, username=username, password=password, role=role)
+        object = User(name=name, email=email, username=username, password=password)
         # input data ke database
         user.add(object=object)
 
@@ -50,7 +49,6 @@ def login():
 
         # Jika user ditemukan, masuk ke halaman home
         if data_user is not None:
-            breakpoint()
             session['user_id'] = data_user.id
             return redirect(url_for('home'))
 
@@ -88,10 +86,10 @@ def update_account(id):
     account.update(id=id, name=name, username=username, password=password)
     redirect(url_for('home'))
 
-@app.route("/home/<int:id>", methods=['DELETE'])
+@app.route("/home/<int:id>", methods=['DELETE', 'GET'])
 def delete_account(id):
     account.delete(id=id)
-    redirect(url_for('home'))
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':

@@ -4,40 +4,24 @@
     <meta charset="utf-8">
     <title>Password Manager</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>   
 </head>
  
 <body>
-    <section>
-        <!--- navigation --->
-        <nav>
-            <!--- logo --->
-            <a href="#" class="logo">Password Manager</a>
-            <!--- menu --->
-            <ul>
-                <li><a href="#" >@students.ac.id</a></li>
-                <li><a href="#">@gmail.com</a></li>
-            </ul>
-        </nav>
- 
-        <!--- text --->
+    <section> 
         <div class="text-container">
-            <p>Welcome to,</p>
+            <p>Welcome !</p>
             <p>Password Manager</p>
             <p>Tempatnya menyimpan semua password Anda dengan aman :)</p>
             <a href="/login"><button class="login" onclick="openPopupLogin">Login</button></a>
             <a href="/register"> <button class="register">Register</button></a>
         </div>
-        <!-- model -->  
+
     </section>
  
     <!-- services -->
     <div class="services">
-        <!--text-->
-        <div class="services-text ">
-            <p>Keamanan Password</p>
-            <p>Manfaat utama yang dapat dirasakan ketika menerapkan data security adalah data, baik itu milik perusahaan maupun konsumen, dapat terlindungi dari serangan siber dan kejahatan sejenisnya. Dengan begitu, berbagai macam ancaman dan risiko digital yang kemungkinan dihadapi dapat dihindari dan/atau dihadapi dengan baik.</p>
-        </div>
 </body>
- 
+{% extends "footer.html" %}
 </html>

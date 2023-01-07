@@ -1,5 +1,3 @@
-<!-- templates/login.html -->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +8,10 @@
     <div class="login-container">
         <form action="/login" method="post">
             <h1>Login</h1>
-            {% if error %}
+            {% if message %}
                 <script>
-                    alert(error);
+                    var error = "{{ message }}"
+                    alert(message);
                 </script>
             {% endif %}
             <input type="text" name="username" placeholder="Username" required>

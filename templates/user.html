@@ -3,6 +3,9 @@
 <head>
     <title>User - Password Manager</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
+    <script src="{{ url_for('static', filename='js/delete.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/user.js') }}"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
     <!-- Header -->
@@ -15,11 +18,16 @@
     <nav>
         <a href="/logout">Logout</a>
     </nav>
-
+    {% if message %}
+        <script>
+            var error = "{{ message }}"
+            alert(message);
+        </script>
+    {% endif %}
     <!-- Main content -->
     <main>
         <h2>Daftar Accounts</h2>
-        <button onclick="openPopupAdd()">Add</button>
+        <button onclick="openPopupAdd()">Tambah Account</button>
         <table>
             <thead>
                 <tr>
@@ -36,93 +44,19 @@
                     <td>{{ account.username }}</td>
                     <td>{{ account.password }}</td>
                     <td>
-                        <!-- <button onclick="openPopup( {{ account.id }} )">Edit</button> -->
-                        <form action="/home/{{ account.id }}" method="delete">
-                            <input type="submit" class="btn first" value="Delete">
-                        </form>
+                        <button onclick="window.location.href='/account/update/{{ account.id }}'" type="button" class="btn btn-warning">Ubah</button>
+                        <button id="delete-button" onclick="deleteData('{{ account.id }}')" class="btn btn-danger" data-endpoint="/account/delete/{{ account.id }}">Hapus</button>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-
-        <style>
-            /* Pop-up style */
-            #popupadd {
-                position: fixed;
-                display: none;
-                z-index: 1;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: rgba(0, 0, 0, 0.4);
-            }
-
-            .btn {
-                box-sizing: border-box;
-                -webkit-appearance: none;
-                    -moz-appearance: none;
-                        appearance: none;
-                background-color: transparent;
-                border: 2px solid #e74c3c;
-                border-radius: 0.6em;
-                color: #e74c3c;
-                /* cursor: pointer; */
-                display: flex;
-                align-self: center;
-                font-size: 1rem;
-                font-weight: 400;
-                line-height: 1;
-                margin: auto;
-                text-decoration: none;
-                text-align: center;
-                text-transform: uppercase;
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 700;
-                }
-                .btn:hover, .btn:focus {
-                color: #fff;
-                outline: 0;
-                }
-
-                .first {
-                transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-                }
-                .first:hover {
-                box-shadow: 0 0 40px 40px #e74c3c inset;
-                }
-        </style>
-
-        <!-- Pop-up for adding a new account -->
-<div id="popupadd" style="display: none;">
-    <!-- Include the 'add' form -->
-    {% include 'add.html' %}
-</div>
-
-<script>
-    function openPopupAdd() {
-        document.getElementById("popupadd").style.display = "block";
-    }
-</script>
-
-        <!-- Pop-up for editing an existing account -->
-<div id="popupedit" style="display: none;">
-    <!-- Include the 'edit' form -->
-    {% include 'edit.html' %}
-</div>
-
-<script>
-    function openPopup(id) {
-        document.getElementById("popupedit").style.display = "block";
-    }
-</script>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        &copy; Copyright 2021 | Password Manager
-    </footer>
+            <!-- Pop-up for adding a new account -->
+            <div id="popupadd" style="display: none;">
+                <!-- Include the 'add' form -->
+                {% include 'add.html' %}
+            </div>
+        </main>
 </body>
+{% extends "footer.html" %}
 </html>
